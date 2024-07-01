@@ -21,6 +21,7 @@ RUN git clone https://github.com/facebookresearch/nle.git /nle --recursive \
  && sed '/def seed(self, core=None, disp=None, reseed=True):/d' /nle/nle/env/tasks.py -i \
  && sed '/raise RuntimeError("NetHackChallenge doesn.t allow seed changes")/d' /nle/nle/env/tasks.py -i
 
+RUN cd /nle/third_party && rm -rf libtmt && git clone https://github.com/deadpixi/libtmt
 RUN cd /nle && python setup.py install
 
 # uncomment for PyPy support
